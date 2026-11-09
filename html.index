@@ -1,1 +1,565 @@
 
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio ของกมลลักษณ์ สวัสดิวงศ์">
+    <title>Portfolio | กมลลักษณ์ สวัสดิวงศ์</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f8f7fc;
+            color: #25233a;
+            line-height: 1.8;
+        }
+
+        :root {
+            --purple: #7041a6;
+            --pink: #c18bd7;
+            --dark: #29213c;
+            --light: #f2eafa;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px #0000000d;
+        }
+
+        .logo {
+            color: var(--purple);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--purple);
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            padding: 70px 10%;
+            background: linear-gradient(135deg, #f5edfc, #ffffff, #eee3fa);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text .tag {
+            color: var(--purple);
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 60px);
+            line-height: 1.3;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+        }
+
+        .hero p {
+            color: #686176;
+            font-size: 17px;
+        }
+
+        .hero-image img {
+            width: 320px;
+            height: 430px;
+            object-fit: cover;
+            object-position: center 25%;
+            border-radius: 160px 160px 25px 25px;
+            border: 8px solid white;
+            box-shadow: 0 15px 40px #5e3c7b30;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 28px;
+            background: var(--purple);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 85px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--purple);
+        }
+
+        .section-title p {
+            color: #888;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px #00000008;
+            transition: .3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--purple);
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            color: #666;
+        }
+
+        .dream {
+            background: linear-gradient(135deg, #38244f, #7041a6);
+            color: white;
+            text-align: center;
+        }
+
+        .dream h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .dream p {
+            max-width: 750px;
+            margin: auto;
+            color: #eee1fa;
+        }
+
+        .dream .quote {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #f1d5ff;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #00000008;
+        }
+
+        .skill-card .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            color: var(--purple);
+        }
+
+        .activities {
+            background: #f1eafa;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .activity-card {
+            background: white;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #0000000c;
+            transition: .3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            background: #fff;
+            padding: 8px;
+        }
+
+        .activity-content {
+            padding: 20px;
+        }
+
+        .activity-content h3 {
+            font-size: 18px;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+
+        .activity-content p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .education {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid var(--purple);
+        }
+
+        footer {
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            padding: 35px 15px;
+        }
+
+        footer p {
+            color: #d5c8e3;
+        }
+
+        @media(max-width: 800px) {
+            nav {
+                padding: 12px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-image img {
+                width: 240px;
+                height: 320px;
+            }
+
+            .about-grid,
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+
+        @media(max-width: 420px) {
+            .logo {
+                font-size: 16px;
+            }
+
+            nav ul {
+                gap: 8px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">BEAM.</div>
+        <ul>
+            <li><a href="#about">เกี่ยวกับฉัน</a></li>
+            <li><a href="#dream">ความฝัน</a></li>
+            <li><a href="#skills">ทักษะ</a></li>
+            <li><a href="#activities">ผลงาน</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-text">
+            <span class="tag">MY PORTFOLIO | 2026</span>
+
+            <h1>
+                Hello, I'm<br>
+                <span>Kamollak Beam.</span>
+            </h1>
+
+            <p>
+                สวัสดีค่ะ หนูชื่อ นางสาวกมลลักษณ์ สวัสดิวงศ์
+                ชื่อเล่น บีม ปัจจุบันกำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6
+                หนูเป็นคนที่มีความสนใจในการเรียนรู้สิ่งใหม่ ๆ
+                โดยเฉพาะด้านกฎหมาย ความยุติธรรม และการทำงานเพื่อสังคม
+            </p>
+
+            <a href="#about" class="btn">รู้จักฉันเพิ่มเติม</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="IMG_0989.jpeg" alt="รูปโปรไฟล์ของกมลลักษณ์">
+        </div>
+
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>ทำความรู้จักตัวตนของฉัน</p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="info-card">
+                <h3>ข้อมูลส่วนตัว</h3>
+                <p><b>ชื่อ-นามสกุล:</b> นางสาวกมลลักษณ์ สวัสดิวงศ์</p>
+                <p><b>ชื่อเล่น:</b> บีม</p>
+                <p><b>ระดับการศึกษา:</b> มัธยมศึกษาปีที่ 6</p>
+                <p><b>โรงเรียน:</b> โรงเรียนทุ่งใหญ่เฉลิมราชานุสรณ์ รัชมังคลาภิเษก</p>
+                <p><b>ความสนใจ:</b> กฎหมายและกระบวนการยุติธรรม</p>
+            </div>
+
+            <div class="info-card">
+                <h3>ตัวตนของฉัน</h3>
+                <p>
+                    หนูเป็นคนที่สนใจการเรียนรู้และพัฒนาตนเองอยู่เสมอ
+                    มีความตั้งใจที่จะศึกษาเรื่องต่าง ๆ รอบตัว
+                    โดยเฉพาะเรื่องกฎหมาย ระเบียบ และความถูกต้องในสังคม
+                    หนูเชื่อว่าการเรียนรู้และความพยายาม
+                    จะช่วยให้เราก้าวไปสู่เป้าหมายที่ตั้งใจไว้ได้
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+        <div class="section-title">
+            <h2>Education</h2>
+            <p>ประวัติการศึกษา</p>
+        </div>
+
+        <div class="education">
+            <h3 style="color:#7041a6;">โรงเรียนทุ่งใหญ่เฉลิมราชานุสรณ์ รัชมังคลาภิเษก</h3>
+            <p>ระดับชั้นมัธยมศึกษาตอนปลาย</p>
+            <p>ปัจจุบันกำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6</p>
+            <p>มุ่งมั่นพัฒนาความรู้ ความสามารถ และประสบการณ์
+                เพื่อเตรียมความพร้อมสำหรับการศึกษาต่อในระดับมหาวิทยาลัย</p>
+        </div>
+    </section>
+
+    <!-- DREAM -->
+    <section class="dream" id="dream">
+
+        <h2>My Dream & Future</h2>
+
+        <p>
+            เป้าหมายในอนาคตของหนูคือการศึกษาต่อในคณะนิติศาสตร์
+            เพื่อเรียนรู้เกี่ยวกับกฎหมาย สิทธิ หน้าที่ และกระบวนการยุติธรรม
+            หนูมีความใฝ่ฝันที่จะประกอบอาชีพตำรวจ
+            เพราะเป็นอาชีพที่ได้ช่วยเหลือประชาชน ดูแลความสงบเรียบร้อย
+            และปกป้องความยุติธรรมในสังคม
+            หนูจึงตั้งใจที่จะพัฒนาตนเองทั้งด้านความรู้ ความรับผิดชอบ
+            ระเบียบวินัย และความอดทน เพื่อเดินไปสู่เป้าหมายนี้
+        </p>
+
+        <div class="quote">
+            "ความยุติธรรมเริ่มต้นจากความรู้
+            และความกล้าที่จะทำในสิ่งที่ถูกต้อง"
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My Skills & Interests</h2>
+            <p>ทักษะและความสนใจ</p>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <div class="icon">⚖️</div>
+                <h3>ความสนใจด้านกฎหมาย</h3>
+                <p>สนใจเรียนรู้กฎหมายและกระบวนการยุติธรรม</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🤝</div>
+                <h3>การทำงานร่วมกัน</h3>
+                <p>การร่วมกิจกรรมและทำงานกับผู้อื่น</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🎯</div>
+                <h3>ความรับผิดชอบ</h3>
+                <p>ตั้งใจทำหน้าที่และมุ่งมั่นต่อเป้าหมาย</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🧠</div>
+                <h3>การคิดวิเคราะห์</h3>
+                <p>ฝึกคิดอย่างมีเหตุผลและแก้ไขปัญหา</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">📚</div>
+                <h3>การเรียนรู้</h3>
+                <p>พร้อมเปิดรับความรู้และประสบการณ์ใหม่ ๆ</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🌟</div>
+                <h3>การพัฒนาตนเอง</h3>
+                <p>เรียนรู้ข้อผิดพลาดและพัฒนาตนเองอยู่เสมอ</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="activities" id="activities">
+
+        <div class="section-title">
+            <h2>Activities & Awards</h2>
+            <p>กิจกรรมและเกียรติบัตรแห่งความภาคภูมิใจ</p>
+        </div>
+
+        <div class="activity-grid">
+
+            <div class="activity-card">
+                <img src="IMG_3863.jpeg" alt="เกียรติบัตรการแข่งขันสิ่งประดิษฐ์ทางคณิตศาสตร์">
+                <div class="activity-content">
+                    <h3>การแข่งขันสิ่งประดิษฐ์ทางคณิตศาสตร์</h3>
+                    <p>
+                        ได้รับรางวัลระดับเหรียญทองแดง
+                        ในการแข่งขันสิ่งประดิษฐ์ทางคณิตศาสตร์
+                        ระดับชั้น ม.4–ม.6
+                        งานศิลปหัตถกรรมนักเรียน ครั้งที่ 73
+                        ปีการศึกษา 2568
+                    </p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="IMG_3861.jpeg" alt="เกียรติบัตรอบรมให้ความรู้เกี่ยวกับยาเสพติด">
+                <div class="activity-content">
+                    <h3>อบรมให้ความรู้เกี่ยวกับยาเสพติด</h3>
+                    <p>
+                        ผ่านการอบรมเกี่ยวกับยาเสพติด
+                        ผลกระทบและแนวทางการป้องกัน
+                        ภายใต้โครงการ TO BE NUMBER ONE
+                        ตำบลทุ่งใหญ่ ปีงบประมาณ 2569
+                    </p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="IMG_3862.jpeg" alt="เกียรติบัตรการแข่งขันตอบปัญหาวิทยาศาสตร์">
+                <div class="activity-content">
+                    <h3>การแข่งขันตอบปัญหาทางวิทยาศาสตร์</h3>
+                    <p>
+                        ได้รับรางวัลชนะเลิศ
+                        การแข่งขันตอบปัญหาทางวิทยาศาสตร์
+                        ระดับมัธยมศึกษาตอนปลาย
+                        เนื่องในกิจกรรมสัปดาห์วันวิทยาศาสตร์แห่งชาติ
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Thank You</h2>
+        <p>กมลลักษณ์ สวัสดิวงศ์ | BEAM</p>
+        <p>Every step brings me closer to my dream.</p>
+        <p>© <span id="year"></span> My Portfolio</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
+
